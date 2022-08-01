@@ -1,0 +1,10 @@
+*.example.com {
+    tls user@example.com {
+        dns digitalocean {env.DIGITALOCEAN_API_TOKEN}
+    }
+
+    @whoami host whoami.example.com
+    handle @whoami {
+        reverse_proxy whoami:80
+    }
+}
